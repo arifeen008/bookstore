@@ -42,7 +42,9 @@
                     {{-- Book Image / Cover --}}
                     <a href="{{ route('books.show', $book->id) }}" class="flex-shrink-0">
 
-                        <img src="{{ (!empty($book->cover) && file_exists(public_path('storage/' . $book->cover))) ? asset('storage/' . $book->cover) : 'https://placehold.co/400x550/E9ECEF/495057?text=No Cover' }}" class="card-img-top object-fit-cover rounded-top" alt="{{ $book->title }}" style="height: 280px; width: 100%; object-fit: cover;">
+                        <img src="{{ !empty($book->cover) && file_exists(public_path('storage/' . $book->cover)) ? asset('storage/' . $book->cover) : 'https://placehold.co/400x550/E9ECEF/495057?text=No Cover' }}"
+                            class="card-img-top object-fit-cover rounded-top" alt="{{ $book->title }}"
+                            style="height: 280px; width: 100%; object-fit: cover;">
                     </a>
 
                     {{-- Card Body --}}
@@ -62,10 +64,7 @@
                             <p class="fw-bolder fs-5 text-danger mb-2">
                                 {{ number_format($book->price, 2) }} บาท
                             </p>
-
-                            
                         </div>
-
 
                         {{-- Action Buttons --}}
                         <div class="d-grid gap-2 mt-3">
